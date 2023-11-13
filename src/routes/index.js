@@ -9,8 +9,8 @@ route.get("/", (req, res) => {
   res.json("Welcome to my app todo list sequelize migration");
 });
 
-route.use("/api/login", loginRoute);
-route.use("/api/todos", todoRoute);
+route.use("/api/auth", loginRoute);
+route.use("/api/todos/", todoRoute);
 route.use("/api/users", userRoute);
 
 module.exports = route;
