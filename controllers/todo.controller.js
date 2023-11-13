@@ -30,7 +30,7 @@ module.exports = {
       // Mengirim response
       if (todo) {
         res.json({
-          message: "Berhasil mendapatkan todo by id",
+          message: "Successfully got todo by id",
           data: todo,
         });
       } else {
@@ -56,12 +56,12 @@ module.exports = {
 
       // Mengirim response
       res.status(201).json({
-        message: "Berhasil menambahkan todo",
+        message: "Successfully added todo",
       });
     } catch (error) {
       // Menangani kesalahan jika terjadi
       res.status(500).json({
-        message: "Gagal menambahkan todo",
+        message: "Failed to add todo",
         error: error.message,
       });
     }
