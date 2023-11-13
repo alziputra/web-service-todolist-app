@@ -1,10 +1,8 @@
 const express = require("express");
 const route = express.Router();
 
-const tokenChecker = require('../middlewares/tokenChecker');
+const tokenChecker = require("../middlewares/tokenChecker");
 const { getAllTodo, getTodoById, addTodo, editTodoById, deleteTodoById } = require("../controllers/todo.controller");
-
-
 
 route.get("/", getAllTodo);
 route.get("/:id", tokenChecker, getTodoById);
