@@ -5,7 +5,7 @@ const { getAllTodo, getTodoById, addTodo, editTodoById, deleteTodoById } = requi
 route.get("/", getAllTodo);
 route.get("/:id", getTodoById);
 route.post("/", addTodo);
-// route.put("/:id", editTodoById);
-// route.delete("/:id", deleteTodoById);
+route.put("/:id", editTodoById);
+route.delete("/:id", deleteTodoById);
 
 module.exports = route;

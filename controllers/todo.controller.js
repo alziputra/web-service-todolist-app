@@ -66,4 +66,58 @@ module.exports = {
       });
     }
   },
+
+  editTodoById: async (req, res) => {
+    const { id } = req.params;
+    const newData = req.body;
+
+    try {
+      const todo = await Todolist.findByPk(id);
+
+      if (todo) {
+        // Menggunakan metode update untuk mengganti data yang ada
+        await todo.update(newData);
+
+        res.json({
+          message: "Successfully edited todo by id",
+          data: todo,
+        });
+      } else {
+        res.status(404).json({
+          message: "Todo not found",
+        });
+      }
+    } catch (error) {
+      res.status(500).json({
+        message: "Internal Server Error",
+        error: error.message,
+      });
+    }
+  },
+
+  deleteTodoById: async (req, res) => {
+    const { id } = req.params;
+
+    try {
+      const todo = await Todolist.findByPk(id);
+
+      if (todo) {
+        // Menggunakan metode destroy untuk menghapus data
+        await todo.destroy();
+
+        res.json({
+          message: "Successfully deleted todo by id",
+        });
+      } else {
+        res.status(404).json({
+          message: "Todo not found",
+        });
+      }
+    } catch (error) {
+      res.status(500).json({
+        message: "Internal Server Error",
+        error: error.message,
+      });
+    }
+  },
 };
