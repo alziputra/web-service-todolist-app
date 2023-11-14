@@ -1,276 +1,658 @@
 {
-  "info": {
-    "_postman_id": "8aaf90f2-0968-4b33-a6b7-3a8fd495a23d",
-    "name": "webservice-todolist-app",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "25890347"
-  },
-  "item": [
-    {
-      "name": "Development",
-      "item": [
-        {
-          "name": "get-token-user",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n  \"username\": \"alziputra\",\r\n  \"password\": \"123\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:5000/api/auth/login",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "auth", "login"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "get-all-todo",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:5000/api/todos/",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "todos", ""]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "add-todo",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n  \"title\": \"Belanja\",\r\n  \"description\": \"Beli beras 5 kg\",\r\n  \"completed\": false\r\n}\r\n",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:5000/api/todos",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "todos"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "get-todo-by-Id",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:5000/api/todos/4",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "todos", "4"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "delete-todo-by-id",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:5000/api/todos/2",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "todos", "2"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "edit-todo-by-id",
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"title\": \"Entity Relationship Diagram\",\r\n    \"description\": \"Buat ERD online shop\",\r\n    \"completed\": false\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:5000/api/todos/1",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "todos", "1"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "get-all-user",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:5000/api/users",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "users"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "create-user",
-          "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n  \"email\": \"meyzi13@gmail.com\",\r\n  \"username\": \"meyzi\",\r\n  \"password\": 12356\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:5000/api/users",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "users"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "edit-users",
-          "request": {
-            "method": "PUT",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n  \"email\": \"meyzi@gmail.com\",\r\n  \"username\": \"meyzi\",\r\n  \"password\": 12356\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "http://localhost:5000/api/users/2",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "users", "2"]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "delete-users-by-id",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:5000/api/users/3",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "users", "3"]
-            }
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "name": "Production",
-      "item": []
-    }
-  ]
+	"info": {
+		"_postman_id": "8aaf90f2-0968-4b33-a6b7-3a8fd495a23d",
+		"name": "webservice-todolist-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25890347"
+	},
+	"item": [
+		{
+			"name": "Development",
+			"item": [
+				{
+					"name": "get-token-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"alziputra\",\r\n  \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1leXppIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE2OTk5NjA3NDIsImV4cCI6MTcwMDA0NzE0Mn0.NPO5--H-VEvnQNWiMdDJ4Nr2P8F6j2Y2iExLlKfhQ1o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/todos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"todos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Belanja\",\r\n  \"description\": \"Beli beras 5 kg\",\r\n  \"completed\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-todo-by-Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/todos/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"todos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-todo-by-id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/todos/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"todos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-todo-by-id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Entity Relationship Diagram\",\r\n    \"description\": \"Buat ERD online shop\",\r\n    \"completed\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/todos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"todos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"alziputra12@gmail.com\",\r\n  \"username\": \"alziputra\",\r\n  \"password\": 123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-users",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"meyzi@gmail.com\",\r\n  \"username\": \"meyzi\",\r\n  \"password\": 12356\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-users-by-id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Production",
+			"item": [
+				{
+					"name": "get-token-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"alziputra\",\r\n  \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web-service-todolist-app.vercel.app/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"web-service-todolist-app",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5OTM1MzkyLCJleHAiOjE3MDAwMjE3OTJ9.AnlEEJnPtXmNRXso1wwAQ_h8Jb5NEaDZUmBGQ-DsRTM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web-service-todolist-app.vercel.app/api/todos/",
+							"protocol": "https",
+							"host": [
+								"web-service-todolist-app",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"todos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-todo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Belanja\",\r\n  \"description\": \"Beli beras 5 kg\",\r\n  \"completed\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web-service-todolist-app.vercel.app/api/todos",
+							"protocol": "https",
+							"host": [
+								"web-service-todolist-app",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-todo-by-Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web-service-todolist-app.vercel.app/api/todos/4",
+							"protocol": "https",
+							"host": [
+								"web-service-todolist-app",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"todos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-todo-by-id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://web-service-todolist-app.vercel.app/api/todos/2",
+							"protocol": "https",
+							"host": [
+								"web-service-todolist-app",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"todos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-todo-by-id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFsemlwdXRyYSIsInBhc3N3b3JkIjoiMTIzIiwiaWF0IjoxNjk5ODk0ODEwLCJleHAiOjE2OTk5ODEyMTB9.jr8I2saLkAYEcKm427Z2oZtvaX0OG9-AhDqzHZDqQ9A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Entity Relationship Diagram\",\r\n    \"description\": \"Buat ERD online shop\",\r\n    \"completed\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web-service-todolist-app.vercel.app/api/todos/1",
+							"protocol": "https",
+							"host": [
+								"web-service-todolist-app",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"todos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web-service-todolist-app.vercel.app/api/users",
+							"protocol": "https",
+							"host": [
+								"web-service-todolist-app",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"alziputra12@gmail.com\",\r\n  \"username\": \"alziputra\",\r\n  \"password\": 123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web-service-todolist-app.vercel.app/api/users/",
+							"protocol": "https",
+							"host": [
+								"web-service-todolist-app",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit-users",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"meyzi@gmail.com\",\r\n  \"username\": \"meyzi\",\r\n  \"password\": 12356\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web-service-todolist-app.vercel.app/users/2",
+							"protocol": "https",
+							"host": [
+								"web-service-todolist-app",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-users-by-id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://web-service-todolist-app.vercel.app/api/users/1",
+							"protocol": "https",
+							"host": [
+								"web-service-todolist-app",
+								"vercel",
+								"app"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
 }
